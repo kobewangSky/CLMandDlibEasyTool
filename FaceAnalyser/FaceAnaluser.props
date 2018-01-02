@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>./include;$(SolutionDir)\LandmarkDetector\include;$(SolutionDir)\3rdParty\OpenCV3.0;$(SolutionDir)\3rdParty\OpenCV3.0\opencv;$(SolutionDir)\3rdParty\boost\boost;$(SolutionDir)\3rdParty\boost;$(SolutionDir)\3rdParty\dlib\include;$(SolutionDir)\3rdParty\tbb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
