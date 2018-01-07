@@ -142,8 +142,8 @@ xcopy /I /E /Y /D "./inc" "../CLMandDlibSDK/Include/$(ProjectName)"
     <ClInclude Include="inc\CLMFaceLandmark.h" />
     <ClInclude Include="inc\DLibFaceLandMark.h" />
     <ClInclude Include="inc\FaceLandmarkAPI.h" />
+    <ClInclude Include="inc\FaceLandmarkDefine.h" />
     <ClInclude Include="inc\FaceLandmarkInterface.h" />
-    <ClInclude Include="src\FaceLandmarkDefine.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

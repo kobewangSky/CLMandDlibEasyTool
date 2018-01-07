@@ -30,13 +30,13 @@
     <ClInclude Include="inc\FaceLandmarkAPI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\FaceLandmarkDefine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\CLMFaceLandmark.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\DLibFaceLandMark.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\FaceLandmarkDefine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -48,8 +48,8 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -80,6 +80,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);</ExecutablePath>
+    <SourcePath>$(VC_SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -133,13 +136,21 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>./include;..\CLMandDlibSDK\include\OpenCV3.0;..\CLMandDlibSDK\include\OpenCV3.0\opencv;..\CLMandDlibSDK\include\boost;..\CLMandDlibSDK\include;..\CLMandDlibSDK\include\tbb;..\CLMandDlibSDK\include\CLMandDlib;..\CLMandDlibSDK\include\FaceAnalyser;..\CLMandDlibSDK\include\LandmarkDetector;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\CLMandDlibSDK\Lib\tbb\$(Platform)\v140\;..\CLMandDlibSDK\Lib\OpenCV3.0;..\CLMandDlibSDK\Lib\$(Configuration);..\CLMandDlibSDK\Lib\boost\$(Platform)\v140\lib;..\CLMandDlibSDK\Lib\dlib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CLMandDlib.lib;FaceAnalyser.lib;LandmarkDetector.lib;dlib.lib;tbb.lib;libboost_filesystem-vc$(PlatformToolsetVersion)-mt-1_60.lib;opencv_world300.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /I /E /Y /D "../CLMandDlibSDK\Dll\OpenCV3.0" "$(OutDir)"
+xcopy /I /E /Y /D "../CLMandDlibSDK\Dll\tbb\x64\v140" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
