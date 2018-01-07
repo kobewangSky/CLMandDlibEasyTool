@@ -1,7 +1,5 @@
 #pragma once
 #include "FaceLandmarkInterface.h"
-
-
 #include "LandmarkCoreIncludes.h"
 #include "GazeEstimation.h"
 

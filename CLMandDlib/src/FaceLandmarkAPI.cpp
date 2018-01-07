@@ -1,5 +1,6 @@
 #include "FaceLandmarkAPI.h"
 #include "CLMFaceLandmark.h"
+#include "DLibFaceLandMark.h"
 
 using namespace CLMandDlib;
 
@@ -12,7 +13,7 @@ FaceLandmarkAPI::FaceLandmarkAPI(LandmarkType type)
 	}
 	else if ( type == Dlib )
 	{
-
+		m_pFaceLandmarkInterface = std::make_shared<DLibFaceLandMark>();
 	}
 
 }
