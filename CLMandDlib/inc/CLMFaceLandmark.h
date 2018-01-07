@@ -15,13 +15,8 @@ namespace CLMandDlib
 	{
 	public:
 
-		~CLMFaceLandmark()
-		{
-			
-		}
-
 		virtual void initializationDataSet(std::string strDataPath, int nCameraID) override;
-		virtual void Run(std::vector<cv::Point3d>& vPoint3dLandmarkData, cv::Mat& matImage) override;
+		virtual void Run(std::vector<cv::Point3d>& vPoint3dLandmarkData, cv::Mat& matImage, bool bShowResoult) override;
 
 	private:
 
@@ -47,7 +42,7 @@ namespace CLMandDlib
 		cv::Point3f m_kgazeDirection1;
 
 		void UpdateFrame(cv::Mat& matImage);
-		void UpdateFaceTracking();
+		void UpdateFaceTracking(bool bShowResoult);
 
 		void visualise_tracking(cv::Mat& captured_image, cv::Mat_<float>& depth_image, const LandmarkDetector::CLNF& face_model, const LandmarkDetector::FaceModelParameters& det_parameters, cv::Point3f gazeDirection0, cv::Point3f gazeDirection1, int frame_count, double fx, double fy, double cx, double cy);
 		void SetupValue(std::vector<cv::Point3d>& vPoint3dLandmarkData);

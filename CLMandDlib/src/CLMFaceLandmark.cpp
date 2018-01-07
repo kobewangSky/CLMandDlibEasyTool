@@ -84,16 +84,13 @@ void CLMFaceLandmark::initializationDataSet( std::string strDataPath, int nCamer
 	}
 }
 
-void CLMFaceLandmark::Run(std::vector<cv::Point3d>& vPoint3dLandmarkData, cv::Mat& matImage)
+void CLMFaceLandmark::Run(std::vector<cv::Point3d>& vPoint3dLandmarkData, cv::Mat& matImage, bool bShowResoult)
 {
-	while (1)
+	if (m_bisStreamOpen)
 	{
-		if (m_bisStreamOpen)
-		{
-			UpdateFrame(matImage);
-			UpdateFaceTracking();
-			SetupValue(vPoint3dLandmarkData);
-		}
+		UpdateFrame(matImage);
+		UpdateFaceTracking(bShowResoult);
+		SetupValue(vPoint3dLandmarkData);
 	}
 
 }
@@ -176,7 +173,7 @@ void CLMFaceLandmark::UpdateFrame(cv::Mat& matImage)
 	matImage = m_pframe->clone();
 }
 
-void CLMFaceLandmark::UpdateFaceTracking()
+void CLMFaceLandmark::UpdateFaceTracking(bool bShowResoult)
 {
 
 	// Reading the images
@@ -203,8 +200,11 @@ void CLMFaceLandmark::UpdateFaceTracking()
 		FaceAnalysis::EstimateGaze(m_kclnf_model, m_kgazeDirection1, m_fx, m_fy, m_cx, m_cy, false);
 	}
 
-	visualise_tracking(*m_pframe, depth_image, m_kclnf_model, m_kdet_parameters, m_kgazeDirection0, m_kgazeDirection1, m_bframe_count, m_fx, m_fy, m_cx, m_cy);
-
+	if (bShowResoult)
+	{
+		visualise_tracking(*m_pframe, depth_image, m_kclnf_model, m_kdet_parameters, m_kgazeDirection0, m_kgazeDirection1, m_bframe_count, m_fx, m_fy, m_cx, m_cy);
+	}
+	
 
 	// detect key presses
 	char character_press = cv::waitKey(1);

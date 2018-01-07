@@ -26,7 +26,7 @@ namespace CLMandDlib
 		}
 
 		virtual void initializationDataSet(std::string strDataPath, int nCameraID) override;
-		virtual void Run(std::vector<cv::Point3d>& vPoint3dLandmarkData, cv::Mat& matImage) override;
+		virtual void Run(std::vector<cv::Point3d>& vPoint3dLandmarkData, cv::Mat& matImage, bool bShowResoult) override;
 
 	private:
 
@@ -42,7 +42,7 @@ namespace CLMandDlib
 		cv::VideoCapture* m_pstream;
 
 		void UpdateFrame(cv::Mat& matImage);
-		void UpdateFaceTrackingPoints();
+		void UpdateFaceTracking(bool bShowResoult);
 		void SetupValue(std::vector<cv::Point3d>& vPoint3dLandmarkData);
 		void Draw(std::vector< cv::Point3d >& kDraw);
 

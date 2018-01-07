@@ -25,12 +25,12 @@ void DLibFaceLandMark::initializationDataSet(std::string strDataPath, int nCamer
 
 }
 
-void DLibFaceLandMark::Run(std::vector<cv::Point3d>& vPoint3dLandmarkData, cv::Mat& matImage)
+void DLibFaceLandMark::Run(std::vector<cv::Point3d>& vPoint3dLandmarkData, cv::Mat& matImage, bool bShowResoult)
 {
 	if (m_bisStreamOpen)
 	{
 		UpdateFrame(matImage);
-		UpdateFaceTrackingPoints();
+		UpdateFaceTracking(bShowResoult);
 		SetupValue(vPoint3dLandmarkData);
 	}
 }
@@ -50,7 +50,7 @@ void DLibFaceLandMark::UpdateFrame(cv::Mat& matImage)
 	matImage = *m_pframe;
 }
 
-void DLibFaceLandMark::UpdateFaceTrackingPoints()
+void DLibFaceLandMark::UpdateFaceTracking(bool bShowResoult)
 {
 	// Turn OpenCV's Mat into something dlib can deal with.  Note that this just
 	// wraps the Mat object, it doesn't copy anything.  So cimg is only valid as
@@ -86,27 +86,31 @@ void DLibFaceLandMark::UpdateFaceTrackingPoints()
 			kSourceData.push_back(cv::Point3d(m_kshapes[0].part(i).x(), m_kshapes[0].part(i).y(), m_kshapes[0].part(i).z()));
 		}
 
-		//GazeDetection for 68right & 69left
-		if (faces[0].left() > 0 && faces[0].width() > 0 && faces[0].left() + faces[0].width() < (*m_pframe).cols
-			&& faces[0].top() > 0 && faces[0].height() > 0 && faces[0].top() + faces[0].height() < (*m_pframe).rows)
-		{
-			cv::Rect rectFace(faces[0].left(), faces[0].top(), faces[0].width(), faces[0].height());
-
-			cv::Rect rectEyeLeft(m_kshapes[0].part(36).x(),
-				m_kshapes[0].part(37).y(),
-				m_kshapes[0].part(39).x() - m_kshapes[0].part(36).x(),
-				m_kshapes[0].part(40).y() - m_kshapes[0].part(37).y());
-
-			cv::Rect rectEyeRight(m_kshapes[0].part(42).x(),
-				m_kshapes[0].part(44).y(),
-				m_kshapes[0].part(45).x() - m_kshapes[0].part(42).x(),
-				m_kshapes[0].part(47).y() - m_kshapes[0].part(44).y());
-		}
+// 		//GazeDetection for 68right & 69left
+// 		if (faces[0].left() > 0 && faces[0].width() > 0 && faces[0].left() + faces[0].width() < (*m_pframe).cols
+// 			&& faces[0].top() > 0 && faces[0].height() > 0 && faces[0].top() + faces[0].height() < (*m_pframe).rows)
+// 		{
+// 			cv::Rect rectFace(faces[0].left(), faces[0].top(), faces[0].width(), faces[0].height());
+// 
+// 			cv::Rect rectEyeLeft(m_kshapes[0].part(36).x(),
+// 				m_kshapes[0].part(37).y(),
+// 				m_kshapes[0].part(39).x() - m_kshapes[0].part(36).x(),
+// 				m_kshapes[0].part(40).y() - m_kshapes[0].part(37).y());
+// 
+// 			cv::Rect rectEyeRight(m_kshapes[0].part(42).x(),
+// 				m_kshapes[0].part(44).y(),
+// 				m_kshapes[0].part(45).x() - m_kshapes[0].part(42).x(),
+// 				m_kshapes[0].part(47).y() - m_kshapes[0].part(44).y());
+// 		}
 
 		kSourceData.push_back(cv::Point3d(m_ptPupilLeft.x, m_ptPupilLeft.y, 0));
 		kSourceData.push_back(cv::Point3d(m_ptPupilRight.x, m_ptPupilRight.y, 0));
 
-		Draw(kSourceData);
+		if ( bShowResoult )
+		{
+			Draw(kSourceData);
+		}
+		
 
 	}
 
@@ -126,12 +130,6 @@ void DLibFaceLandMark::Draw(std::vector< cv::Point3d >& kDraw)
 		kcircle.push_back(image_window::overlay_circle(DrawPoint, 3, rgb_pixel(255, 0, 0)));
 	}
 	m_kwin.add_overlay(kcircle);
-
-	image_display::overlay_rect kFacerect(rectangle(175, 50, 515, 410), rgb_pixel(192, 192, 192));
-	m_kwin.add_overlay(kFacerect);
-
-	image_display::overlay_rect kMouthrect(rectangle(275, 270, 410, 325), rgb_pixel(192, 192, 192));
-	m_kwin.add_overlay(kMouthrect);
 }
 
 
