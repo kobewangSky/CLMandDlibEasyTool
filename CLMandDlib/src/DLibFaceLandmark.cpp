@@ -86,36 +86,15 @@ void DLibFaceLandMark::UpdateFaceTracking(bool bShowResoult)
 			kSourceData.push_back(cv::Point3d(m_kshapes[0].part(i).x(), m_kshapes[0].part(i).y(), m_kshapes[0].part(i).z()));
 		}
 
-// 		//GazeDetection for 68right & 69left
-// 		if (faces[0].left() > 0 && faces[0].width() > 0 && faces[0].left() + faces[0].width() < (*m_pframe).cols
-// 			&& faces[0].top() > 0 && faces[0].height() > 0 && faces[0].top() + faces[0].height() < (*m_pframe).rows)
-// 		{
-// 			cv::Rect rectFace(faces[0].left(), faces[0].top(), faces[0].width(), faces[0].height());
-// 
-// 			cv::Rect rectEyeLeft(m_kshapes[0].part(36).x(),
-// 				m_kshapes[0].part(37).y(),
-// 				m_kshapes[0].part(39).x() - m_kshapes[0].part(36).x(),
-// 				m_kshapes[0].part(40).y() - m_kshapes[0].part(37).y());
-// 
-// 			cv::Rect rectEyeRight(m_kshapes[0].part(42).x(),
-// 				m_kshapes[0].part(44).y(),
-// 				m_kshapes[0].part(45).x() - m_kshapes[0].part(42).x(),
-// 				m_kshapes[0].part(47).y() - m_kshapes[0].part(44).y());
-// 		}
-
 		kSourceData.push_back(cv::Point3d(m_ptPupilLeft.x, m_ptPupilLeft.y, 0));
 		kSourceData.push_back(cv::Point3d(m_ptPupilRight.x, m_ptPupilRight.y, 0));
 
 		if ( bShowResoult )
 		{
 			Draw(kSourceData);
-		}
-		
+		}	
 
 	}
-
-
-
 
 }
 
