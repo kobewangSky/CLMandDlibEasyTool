@@ -75,7 +75,7 @@
     <OutDir>..\$(Platform)\DDSDK\Lib\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\$(Platform)\CLMandDlib\Lib\$(Configuration)\</OutDir>
+    <OutDir>..\CLMandDlibSDK\Lib\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -175,9 +175,9 @@ xcopy /I /E /Y /D "$(SolutionDir)lib\3rdParty\OpenCV3.1\classifiers" "$(OutDir)c
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Lib>
     <PostBuildEvent>
-      <Command>xcopy /I /E /Y /D "./model" "../$(Platform)/CLMandDlib/model"
+      <Command>xcopy /I /E /Y /D "./model" "../CLMandDlibSDK/model"
 
-xcopy /I /E /Y /D "./include" "../$(Platform)/CLMandDlib/include/$(ProjectName)"</Command>
+xcopy /I /E /Y /D "./include" "../CLMandDlibSDK/include/$(ProjectName)"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>

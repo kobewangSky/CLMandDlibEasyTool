@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\$(Platform)\CLMandDlib\Lib\$(Configuration)\</OutDir>
+    <OutDir>..\CLMandDlibSDK\Lib\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -129,9 +129,9 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /I /E /Y /D "../3rdParty" "../$(Platform)/CLMandDlib"
+      <Command>xcopy /I /E /Y /D "../3rdParty" "../CLMandDlibSDK"
 
-xcopy /I /E /Y /D "./inc" "../$(Platform)/CLMandDlib/Include/$(ProjectName)"
+xcopy /I /E /Y /D "./inc" "../CLMandDlibSDK/Include/$(ProjectName)"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

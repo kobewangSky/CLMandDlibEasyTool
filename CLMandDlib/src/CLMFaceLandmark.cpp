@@ -24,7 +24,6 @@ void CLMFaceLandmark::initializationDataSet( std::string strDataPath, int nCamer
 		cv::Mat TempImage;
 		UpdateFrame(TempImage);
 
-		//FaceTracking
 		vector<string> arguments;
 
 		// Some initial parameters that can be overriden from command line	

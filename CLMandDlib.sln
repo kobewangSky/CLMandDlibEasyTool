@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FaceAnalyser", "FaceAnalyse
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LandmarkDetector", "LandmarkDetector\LandmarkDetector.vcxproj", "{BDC1D107-DE17-4705-8E7B-CDDE8BFB2BF8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SampleProject", "SampleProject\SampleProject.vcxproj", "{20051B7D-5865-4B20-8B32-5F45913BA91E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -45,6 +47,14 @@ Global
 		{BDC1D107-DE17-4705-8E7B-CDDE8BFB2BF8}.Release|x64.Build.0 = Release|x64
 		{BDC1D107-DE17-4705-8E7B-CDDE8BFB2BF8}.Release|x86.ActiveCfg = Release|Win32
 		{BDC1D107-DE17-4705-8E7B-CDDE8BFB2BF8}.Release|x86.Build.0 = Release|Win32
+		{20051B7D-5865-4B20-8B32-5F45913BA91E}.Debug|x64.ActiveCfg = Debug|x64
+		{20051B7D-5865-4B20-8B32-5F45913BA91E}.Debug|x64.Build.0 = Debug|x64
+		{20051B7D-5865-4B20-8B32-5F45913BA91E}.Debug|x86.ActiveCfg = Debug|Win32
+		{20051B7D-5865-4B20-8B32-5F45913BA91E}.Debug|x86.Build.0 = Debug|Win32
+		{20051B7D-5865-4B20-8B32-5F45913BA91E}.Release|x64.ActiveCfg = Release|x64
+		{20051B7D-5865-4B20-8B32-5F45913BA91E}.Release|x64.Build.0 = Release|x64
+		{20051B7D-5865-4B20-8B32-5F45913BA91E}.Release|x86.ActiveCfg = Release|Win32
+		{20051B7D-5865-4B20-8B32-5F45913BA91E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

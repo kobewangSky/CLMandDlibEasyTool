@@ -76,7 +76,7 @@
     <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\$(Platform)\CLMandDlib\Lib\$(Configuration)\</OutDir>
+    <OutDir>..\CLMandDlibSDK\Lib\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -171,9 +171,9 @@ xcopy /I /E /Y /D "./include" "../$(Platform)/DDSDK/Include/$(ProjectName)"
       </Command>
     </PreLinkEvent>
     <PostBuildEvent>
-      <Command>xcopy /I /E /Y /D "./AU_predictors" "../$(Platform)/CLMandDlib/AU_predictors"
+      <Command>xcopy /I /E /Y /D "./AU_predictors" "../CLMandDlibSDK/AU_predictors"
 
-xcopy /I /E /Y /D "./include" "../$(Platform)/CLMandDlib/include/$(ProjectName)"
+xcopy /I /E /Y /D "./include" "../CLMandDlibSDK/include/$(ProjectName)"
 </Command>
     </PostBuildEvent>
     <PreBuildEvent>
