@@ -20,10 +20,17 @@ Change code CreateFaceLandmark(LandmarkType::Dlib) to CreateFaceLandmark(Landmar
 
 # Get Face landmark Api
 
-FaceLandmarkAPI Temp;                             // new FaceLandmarkAPI
-Temp.CreateFaceLandmark(LandmarkType::CLM);       // 1.Set Face landmark type
-Temp.initializationDataSet(strModel, 0);          // 1.Set 3rdparty Data path, 2.Set Camera ID
-Temp.Run(vPoint3dLandmarkData, matImage, true);   // 1.Get Face landmark point, 2.Get Image, 3.Show resoult
+FaceLandmarkAPI Temp;  
+//new FaceLandmarkAPI
+
+Temp.CreateFaceLandmark(LandmarkType::CLM);      
+//Set Face landmark type
+
+Temp.initializationDataSet(strModel, 0);          
+//1.Set 3rdparty Data path, 2.Set Camera ID
+
+Temp.Run(vPoint3dLandmarkData, matImage, true);   
+//1.Get Face landmark point, 2.Get Image, 3.Show resoult
 
 # Code architecture
 
