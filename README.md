@@ -11,6 +11,7 @@ This is a Face landmark sdk include CLM and Dlib.
 2. Open CLMandDlib.sln
 
 3.Set as start up prject to Sample project
+![image](https://github.com/kobewangSky/FaceLandmark_CLMandDlibEasyTool/blob/master/image/Set_as_startup_project.png)
 
 4.change solution Configurations to "Release"
 
@@ -28,6 +29,8 @@ Temp.initializationDataSet(strModel, 0);          // 1.Set 3rdparty Data path, 2
 Temp.Run(vPoint3dLandmarkData, matImage, true);   // 1.Get Face landmark point, 2.Get Image, 3.Show resoult
 
 # Code architecture
+
+![image](https://github.com/kobewangSky/FaceLandmark_CLMandDlibEasyTool/blob/master/image/Code_architecture.png)
 
 # Conclusion
 
