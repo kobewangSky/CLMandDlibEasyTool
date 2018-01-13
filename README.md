@@ -1,8 +1,5 @@
-# CLMandDlibEasyTool in C++
-Easy to use CLM or Dlib 
-
-Hi all
-This is a Face landmark sdk include CLM and Dlib.
+# FaceLandmark_CLMandDlibEasyTool in C++
+Easy to use CLM or Dlib get landmark 
 
 # Start Compiling CLMandDlib C++ example programs
 
