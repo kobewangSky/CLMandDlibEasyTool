@@ -29,8 +29,8 @@ Temp.CreateFaceLandmark(LandmarkType::CLM);
 Temp.initializationDataSet(strModel, 0);          
 //1.Set 3rdparty Data path, 2.Set Camera ID
 
-Temp.Run(vPoint3dLandmarkData, matImage, true);   
-//1.Get Face landmark point, 2.Get Image, 3.Show resoult
+Temp.Run(vPoint3dLandmarkData, matImage, true);  
+//1.Get Face landmark point, 2.Get Image, 3.Show result
 
 # Code architecture
 
