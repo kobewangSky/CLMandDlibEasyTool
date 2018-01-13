@@ -20,15 +20,15 @@ int main()
 	std::string  strModel = strcurrent_working_dir.substr(0, Endit);
 	strModel = strModel + "\\CLMandDlibSDK";
 
-	FaceLandmarkAPI Temp;
-	Temp.CreateFaceLandmark(LandmarkType::Dlib);
-	Temp.initializationDataSet(strModel, 0);
+	FaceLandmarkAPI Temp;							//new FaceLandmarkAPI
+	Temp.CreateFaceLandmark(LandmarkType::CLM);		//Set Face landmark type
+	Temp.initializationDataSet(strModel, 0);		//1.Set 3rdparty Data path, 2.Set Camera ID
 
 	while (1)
 	{
 		std::vector<cv::Point3d> vPoint3dLandmarkData;
 		cv::Mat matImage;
-		Temp.Run(vPoint3dLandmarkData, matImage, true);
+		Temp.Run(vPoint3dLandmarkData, matImage, true);	//1.Get Face landmark point, 2.Get Image, 3.Show result
 	}
 	
 
